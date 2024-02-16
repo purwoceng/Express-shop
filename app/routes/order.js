@@ -117,15 +117,13 @@ router.post(
         return res.status(400).json({ message: "Invalid data" });
       }
 
-      const status = data.status;
-
-      if (status === "paid") {
-        return res.status(400).json({ message: "Order already paid" });
-      }
-
       const order = await prisma.order.findFirst({
         where: { user_id: Number(id), id: Number(data.order_id) },
       });
+
+      if (order.status === "paid") {
+        return res.status(400).json({ message: "Order already paid" });
+      }
       const dataPayment = {
         amount: order.total,
         cardNumber: data.cardNumber,
