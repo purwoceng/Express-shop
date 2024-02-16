@@ -84,13 +84,14 @@ router.post(
 router.post("/orders/pay", async (req, res) => {
   try {
     const data = req.body;
-    const order = req.order.id;
-    if (!order || !data) {
+    const id = req.user.id;
+
+    if (!id || !data) {
       return res.status(400).json({ message: "Missing order or payment data" });
     }
 
     if (
-      !order.id ||
+      !id.order ||
       !data.cardNumber ||
       !data.cvv ||
       !data.expiryMonth ||
@@ -101,6 +102,9 @@ router.post("/orders/pay", async (req, res) => {
         .json({ message: "Missing required fields in order or payment data" });
     }
 
+    const order = await prisma.order.findFirst({
+      where: { user_id: Number(id), id: Number(data.order_id) },
+    });
     const dataPayment = {
       amount: order.total,
       cardNumber: data.cardNumber,
@@ -113,9 +117,8 @@ router.post("/orders/pay", async (req, res) => {
       "http://localhost:3000/pay",
       dataPayment
     );
-    const paymentData = paymentResponse.data;
 
-    if (paymentData.status === "success") {
+    if (paymentResponse.status === 200) {
       await prisma.order.update({
         where: { id: order.id },
         data: {
@@ -131,10 +134,8 @@ router.post("/orders/pay", async (req, res) => {
       });
     }
 
-    // Mengirim respons kepada klien dengan data pembayaran
-    res.json(paymentData);
+    res.json({ message: "success", payment: paymentResponse.data });
   } catch (error) {
-    // Menangani kesalahan
     console.error("Error processing payment:", error);
     res.status(500).json({ message: "Internal server error" });
   }

@@ -23,6 +23,9 @@ router.get("/search", async (req, res) => {
       name: {
         contains: req.query.name,
       },
+      description: {
+        contains: req.query.description,
+      },
     },
   });
   res.json({ message: "Data products", products: search });
