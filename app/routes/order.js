@@ -120,10 +120,13 @@ router.post(
       const order = await prisma.order.findFirst({
         where: { user_id: Number(id), id: Number(data.order_id) },
       });
-
+      if (!order) {
+        return res.status(401).json({ message: "Order not found" });
+      }
       if (order.status === "paid") {
         return res.status(400).json({ message: "Order already paid" });
       }
+
       const dataPayment = {
         amount: order.total,
         cardNumber: data.cardNumber,
