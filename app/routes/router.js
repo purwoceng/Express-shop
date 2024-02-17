@@ -7,10 +7,10 @@ import loginRoute from "./login.js";
 import userRoute from "./users.js";
 
 const router = Router();
+router.use(userRoute);
 router.use(loginRoute);
 router.use(categoriesRoute);
 router.use(productRoute);
 router.use(cartRoute);
 router.use(orderRoute);
-router.use(userRoute);
 export default router;
