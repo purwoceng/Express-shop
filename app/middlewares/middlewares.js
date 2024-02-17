@@ -1,5 +1,14 @@
 import prisma from "../prisma.js";
 
+/**
++ * Middleware to validate and extract user authentication token from request headers.
++ *
++ * @param {Object} req - The request object
++ * @param {Object} res - The response object
++ * @param {Function} next - The next function to be called in the middleware chain
++ * @return {Promise<void>} - Promise that resolves if the token is valid, or rejects with an error message
++ */
+
 export const authToken = async (req, res, next) => {
   console.log(req.head);
   const token = req.headers.authorization;
