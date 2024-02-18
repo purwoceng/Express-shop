@@ -64,14 +64,14 @@ npm start
         node database/products.js
         ```
       - Result of the products.js
-    ![Alt text](./app/configs/product.png)
+       ![Alt text](./app/configs/product.png)
 
   - user.js (to create faker user data)
       - to run the users.js seeder with the command
         ```
         node database/users.js
         ```
-  ![Alt text](./app/configs/usersfaker.png)
+      ![Alt text](./app/configs/usersfaker.png)
 
 ## Endpoints
 List all Endpoint Express Shopping Cart:
