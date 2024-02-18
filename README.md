@@ -270,3 +270,8 @@ Description: Creates a new user.
     }
   ```
 
+### `search
+#### Request Header
+  - `name` : search Data Products by name
+  - `category` : search Data Products by category
+  - `description` : search Data Products by description

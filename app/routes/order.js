@@ -135,6 +135,11 @@ router.post(
         expiryYear: data.expiryYear,
       };
 
+      const validNumber = /^\d{16}$/.test(dataPayment.cardNumber);
+      if (!validNumber) {
+        return res.status(400).json({ message: "Invalid card number" });
+      }
+
       const paymentResponse = await axios.post(
         "http://localhost:3000/pay",
         dataPayment
