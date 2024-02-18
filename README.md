@@ -39,9 +39,10 @@ npm start
 - From this project I created 3 data seeders, namely:
   - authorization.jsn(to create faker role and permission data)
       - Role Seller Permission
-    ![Alt text](./app/configs/seller.png)
+      ![Alt text](./app/configs/seller.png)
+
       - Role Regular User Permission
-    ![Alt text](./app/configs/user.png)
+      ![Alt text](./app/configs/user.png)
     to run the authorization.js seeder with the command
     ```
     node database/authorization.js
@@ -64,7 +65,7 @@ npm start
         node database/products.js
         ```
       - Result of the products.js
-       ![Alt text](./app/configs/product.png)
+      ![Alt text](./app/configs/product.png)
 
   - user.js (to create faker user data)
       - to run the users.js seeder with the command
@@ -138,7 +139,7 @@ Description: Creates a new user.
 ```
 
 - and we will get a token after we log in and the token will be stored in the tokens table
-  ![Alt text](./app/configs/tokens.png)
+![Alt text](./app/configs/tokens.png)
 
 - after that we have to fill in the body Headers
 
