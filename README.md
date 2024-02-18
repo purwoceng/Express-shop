@@ -116,6 +116,18 @@ Description: Creates a new user.
 }
 ```
 
+### `PUT /users`
+Description: Updates information about the authenticated user.
+
+#### Example
+```json
+{
+  "name": "Purwoceng",
+  "email": "purwoceng@gmail.com",
+  "password": "password123"
+}
+```
+
 - After Register/Post Users Data, you can login with your email and password
 ## Endpoints
 ### `POST /login`
