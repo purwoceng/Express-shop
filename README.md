@@ -28,7 +28,7 @@ npm install
 npx prisma migrate dev
 ```
 Table Migrate Result:
-![Alt text](./app/configs/shop.png)
+![Alt text](./app/configs/shop.PNG)
 
 
 ## Usage
@@ -39,10 +39,10 @@ npm start
 - From this project I created 3 data seeders, namely:
   - authorization.jsn(to create faker role and permission data)
       - Role Seller Permission
-      ![Alt text](./app/configs/seller.png)
+      ![Alt text](./app/configs/seller.PNG)
 
       - Role Regular User Permission
-      ![Alt text](./app/configs/user.png)
+      ![Alt text](./app/configs/user.PNG)
     to run the authorization.js seeder with the command
     ```
     node database/authorization.js
@@ -65,14 +65,14 @@ npm start
         node database/products.js
         ```
       - Result of the products.js
-      ![Alt text](./app/configs/product.png)
+      ![Alt text](./app/configs/product.PNG)
 
   - user.js (to create faker user data)
       - to run the users.js seeder with the command
         ```
         node database/users.js
         ```
-      ![Alt text](./app/configs/usersfaker.png)
+      ![Alt text](./app/configs/usersfaker.PNG)
 
 ## Endpoints
 List all Endpoint Express Shopping Cart:
